@@ -68,4 +68,9 @@ public class IntegerArrayTest {
         assertThat(sum).isEqualTo(6);
     }
 
+    /** Verifies that the sum of 2 elements is correct. Compact implementation. */
+    @Test
+    public void shouldSum2Elements() {
+        assertThat(new IntegerArray(1, 2).sum()).isEqualTo(3);
+    }
 }
