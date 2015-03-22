@@ -36,4 +36,17 @@ public class SafeMathUtilsTest {
     public void shouldThrowExceptionOnNull() {
         SafeMathUtils.max(null);
     }
+
+    /**
+     * Verifies that input parameters are validated. Uses Java 8 lambda expressions and AssertJ.
+     */
+    @Test
+    public void shouldThrowExceptionsUsingLambdaExpressions() {
+        assertThatThrownBy(() -> {
+            SafeMathUtils.max();
+        }).isInstanceOf(IllegalArgumentException.class).hasMessage(SafeMathUtils.NO_VALUES_MESSAGE);
+        assertThatThrownBy(() -> {
+            SafeMathUtils.max(null);
+        }).isInstanceOf(NullPointerException.class);
+    }
 }

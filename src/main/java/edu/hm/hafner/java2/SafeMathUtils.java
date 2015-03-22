@@ -6,6 +6,8 @@ package edu.hm.hafner.java2;
  * @author Ullrich Hafner
  */
 public final class SafeMathUtils {
+    static final String NO_VALUES_MESSAGE = "At least one value required";
+
     /**
      * Returns the maximum of the specified values.
      *
@@ -14,7 +16,7 @@ public final class SafeMathUtils {
      */
     public static int max(final int... values) {
         if (values.length == 0) {
-            throw new IllegalArgumentException("At least one value required");
+            throw new IllegalArgumentException(NO_VALUES_MESSAGE);
         }
         int maximum = values[0];
         for (int i = 1; i < values.length; i++) {
