@@ -7,8 +7,7 @@ package edu.hm.hafner.java2;
  */
 public final class StringUtils {
     /**
-     * Causes this character sequence to be replaced by the reverse of
-     * the sequence.
+     * Causes this character sequence to be replaced by the reverse of the sequence.
      *
      * @param input the string to reverse
      * @return the revered string

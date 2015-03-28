@@ -11,16 +11,17 @@ public final class SafeMathUtils {
     /**
      * Returns the maximum of the specified values.
      *
-     * @param values the values to obtain the maximum from
+     * @param elements the values to obtain the maximum from
      * @return the maximum
+     * @throws IllegalArgumentException if the number of elements is 0
      */
-    public static int max(final int... values) {
-        if (values.length == 0) {
+    public static int max(final int... elements) {
+        if (elements.length == 0) {
             throw new IllegalArgumentException(NO_VALUES_MESSAGE);
         }
-        int maximum = values[0];
-        for (int i = 1; i < values.length; i++) {
-            maximum = Math.max(maximum, values[i]);
+        int maximum = elements[0];
+        for (int i = 1; i < elements.length; i++) {
+            maximum = Math.max(maximum, elements[i]);
         }
         return maximum;
     }
