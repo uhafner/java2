@@ -15,4 +15,9 @@ public class MobileApplications implements Lecture {
     public int getCredits() {
         return 0;
     }
+
+    @Override
+    public String toString() {
+        return getName();
+    }
 }

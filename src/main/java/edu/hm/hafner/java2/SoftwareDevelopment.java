@@ -30,4 +30,9 @@ public class SoftwareDevelopment implements Lecture {
     public int getCredits() {
         return 5;
     }
+
+    @Override
+    public String toString() {
+        return getName();
+    }
 }
