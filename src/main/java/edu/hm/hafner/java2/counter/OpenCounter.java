@@ -42,7 +42,7 @@ public class OpenCounter implements Counter {
     public static void main(final String... args) {
         OpenCounter counter = new OpenCounter();
         for (int i = 0; i < 10; i++) {
-            System.out.printf("%d ", counter.getCount());
+            System.out.format("%d ", counter.getCount());
             counter.next();
         }
         System.out.println();
