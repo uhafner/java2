@@ -5,7 +5,7 @@ import org.junit.Test;
 import static org.assertj.core.api.Assertions.*;
 
 /**
- * Tests the class {@link OpenCounter}.
+ * Tests the class {@link MemoryCounter}.
  *
  * @author Ullrich Hafner
  */

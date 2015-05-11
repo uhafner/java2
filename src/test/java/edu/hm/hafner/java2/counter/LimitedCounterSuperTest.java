@@ -5,7 +5,7 @@ import org.junit.Test;
 import static org.assertj.core.api.Assertions.*;
 
 /**
- * Tests the class {@link }.
+ * Tests the class {@link LimitedCounterSuper}.
  *
  * @author Ullrich Hafner
  */

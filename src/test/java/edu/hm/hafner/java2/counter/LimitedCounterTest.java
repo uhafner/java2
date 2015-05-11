@@ -5,7 +5,7 @@ import org.junit.Test;
 import static org.assertj.core.api.Assertions.*;
 
 /**
- * Tests the class {@link }.
+ * Tests the class {@link LimitedCounter}.
  *
  * @author Ullrich Hafner
  */
@@ -33,5 +33,15 @@ public class LimitedCounterTest extends OpenCounterTest {
     @Test(expected = IllegalArgumentException.class)
     public void shouldHavePositiveLimit() {
         new LimitedCounter(0);
+    }
+
+    /** Verifies that the setter does check for the limit. */
+    @Test
+    public void shouldNotSetValueLargerThanLimit() {
+        assertThatThrownBy(() -> {
+            LimitedCounter counter = new LimitedCounter(5);
+            counter.setCount(6);
+        }).isInstanceOf(IllegalArgumentException.class)
+        .hasMessage("Value 6 must not be larger than the limit 5.");
     }
 }

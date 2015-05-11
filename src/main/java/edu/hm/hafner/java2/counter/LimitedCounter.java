@@ -20,6 +20,14 @@ public class LimitedCounter extends OpenCounter {
         this.limit = limit;
     }
 
+    @Override
+    protected void setCount(final int count) {
+        if (count > limit) {
+            throw new IllegalArgumentException(String.format("Value %d must not be larger than the limit %d.", count, limit));
+        }
+        super.setCount(count);
+    }
+
     /**
      * Returns the limit of this counter.
      *
