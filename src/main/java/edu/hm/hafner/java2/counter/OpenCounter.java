@@ -39,6 +39,7 @@ public class OpenCounter implements Counter {
      *
      * @param args not used
      */
+    @SuppressWarnings("UseOfSystemOutOrSystemErr")
     public static void main(final String... args) {
         OpenCounter counter = new OpenCounter();
         for (int i = 0; i < 10; i++) {

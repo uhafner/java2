@@ -14,6 +14,8 @@ public class LimitedCounter extends OpenCounter {
      * @param limit the limit this counter should count to
      */
     public LimitedCounter(final int limit) {
+        super();
+
         if (limit < 1) {
             throw new IllegalArgumentException("Limit must be a positive value: " + limit);
         }
@@ -40,7 +42,7 @@ public class LimitedCounter extends OpenCounter {
     @Override
     public void next() {
         if (getCount() < limit) {
-            setCount(getCount() + 1);
+            super.next();
         }
     }
 
@@ -49,6 +51,7 @@ public class LimitedCounter extends OpenCounter {
      *
      * @param args not used
      */
+    @SuppressWarnings("UseOfSystemOutOrSystemErr")
     public static void main(final String... args) {
         LimitedCounter counter = new LimitedCounter(5);
         for (int i = 0; i < 10; i++) {

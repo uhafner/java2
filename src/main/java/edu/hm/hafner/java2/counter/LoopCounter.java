@@ -30,6 +30,7 @@ public class LoopCounter extends LimitedCounter {
      *
      * @param args not used
      */
+    @SuppressWarnings("UseOfSystemOutOrSystemErr")
     public static void main(final String... args) {
         LoopCounter counter = new LoopCounter(5);
         for (int i = 0; i < 10; i++) {

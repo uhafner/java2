@@ -15,7 +15,7 @@ public class SoftwareDevelopment implements Lecture {
      */
     public SoftwareDevelopment(final int semester) {
         if (semester < 1 || semester > 2) {
-            throw new IllegalArgumentException("Semester must be either 1 or 2: "+ semester);
+            throw new IllegalArgumentException("Semester must be either 1 or 2: " + semester);
         }
         this.semester = semester;
     }

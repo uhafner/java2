@@ -12,6 +12,7 @@ public final class StringUtils {
      * @param input the string to reverse
      * @return the revered string
      */
+    @SuppressWarnings("NonConstantStringShouldBeStringBuffer")
     public static String reverse(final String input) {
         String reversed = "";
         for (int i = 0; i < input.length(); i++) {
