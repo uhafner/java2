@@ -38,7 +38,7 @@ public class PointTest {
         Point point = createPoint(3, 4);
 
         // When and then
-        assertThat(point.isEqualTo(new Point(3, 4))).isTrue();
+        assertThat(point).isEqualTo(createPoint(3, 4));
     }
 
     /** Verifies that the equals operation correctly works. */
@@ -48,10 +48,10 @@ public class PointTest {
         Point point = createPoint(3, 4);
 
         // When and then
-        assertThat(point.isEqualTo(new Point(2, 4))).isFalse();
-        assertThat(point.isEqualTo(new Point(4, 4))).isFalse();
-        assertThat(point.isEqualTo(new Point(3, 3))).isFalse();
-        assertThat(point.isEqualTo(new Point(3, 5))).isFalse();
+        assertThat(point).isNotEqualTo(new Point(2, 4));
+        assertThat(point).isNotEqualTo(new Point(4, 4));
+        assertThat(point).isNotEqualTo(new Point(3, 3));
+        assertThat(point).isNotEqualTo(new Point(3, 5));
     }
 
     /** Verifies that the equals operation correctly works. */
@@ -61,7 +61,7 @@ public class PointTest {
         Point point = createPoint(3, 4);
 
         // When and then
-        assertThat(point.isEqualTo(null)).isFalse();
+        assertThat(point).isNotEqualTo(null);
     }
 
     /** Verifies that the surrounding points are correctly computed and the SUT is not modified. */
@@ -71,17 +71,28 @@ public class PointTest {
         Point point = createPoint(3, 4);
 
         // When and then
-        assertThat(point.moveLeft().isEqualTo(new Point(2, 4))).isTrue();
-        assertThat(point.moveRight().isEqualTo(new Point(4, 4))).isTrue();
-        assertThat(point.moveUp().isEqualTo(new Point(3, 3))).isTrue();
-        assertThat(point.moveDown().isEqualTo(new Point(3, 5))).isTrue();
+        assertThat(point.moveLeft()).isEqualTo(createPoint(2, 4));
+        assertThat(point.moveRight()).isEqualTo(createPoint(4, 4));
+        assertThat(point.moveUp()).isEqualTo(createPoint(3, 3));
+        assertThat(point.moveDown()).isEqualTo(createPoint(3, 5));
 
-        assertThat(point.isEqualTo(new Point(3, 4))).isTrue();
+        assertThat(point).isEqualTo(createPoint(3, 4));
     }
 
     /** Verifies that {@link Point#toString()} is overwritten. */
     @Test
     public void shouldHaveToStringOverwritten() {
         assertThat(createPoint(4, 2).toString()).isEqualTo("(4, 2)");
+    }
+
+    /** Verifies that points are compared using the Euclidean distance. */
+    @Test
+    public void shouldCompareByDistance() {
+        assertThat(new Point(1, 0).compareTo(new Point(0, 1))).isEqualTo(0);
+        assertThat(new Point(1, 0).compareTo(new Point(2, 0))).isEqualTo(-1);
+        assertThat(new Point(1, 0).compareTo(new Point(1, 1))).isEqualTo(-1);
+        assertThat(new Point(0, 1).compareTo(new Point(2, 0))).isEqualTo(-1);
+        assertThat(new Point(0, 1).compareTo(new Point(1, 1))).isEqualTo(-1);
+        assertThat(new Point(2, 0).compareTo(new Point(1, 0))).isEqualTo(1);
     }
 }
