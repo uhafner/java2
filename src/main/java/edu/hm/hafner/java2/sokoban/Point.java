@@ -109,7 +109,6 @@ public class Point implements Comparable<Point> {
             return false;
         }
         return y == point.y;
-
     }
 
     @Override
